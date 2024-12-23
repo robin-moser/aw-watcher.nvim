@@ -13,7 +13,7 @@
 ---@field aw_server AWClientConfig?
 local default = {
     bucket = {
-        hostname = nil, -- by default value of HOSTNAME env variable
+        hostname = nil, -- by default hostname of computer
         name = nil, -- by default "aw-watcher-neovim_" .. hostname
     },
     aw_server = {
@@ -30,7 +30,7 @@ local function new(opts)
     config.bucket = opts.bucket or default.bucket
     assert(type(config.bucket) == "table", "bucket config must be a table")
 
-    config.bucket.hostname = config.bucket.hostname or os.getenv("HOSTNAME")
+    config.bucket.hostname = config.bucket.hostname or vim.uv.os_gethostname()
     assert(type(config.bucket.hostname) == "string", "bucket hostname must be a string")
 
     config.bucket.name = config.bucket.name or ("aw-watcher-neovim_" .. config.bucket.hostname)
