@@ -2,7 +2,7 @@
 
 ![ActivityWatch](aw_banner.png)
 
-A neovim watcher for [ActivityWatch](https://activitywatch.net/) time tracker.
+A neovim watcher for [ActivityWatch](https://activitywatch.net/) time tracker. Fully configurable and written entirely in lua. Compatible with modern package managers.
 
 ## ✨ Tracks
 
@@ -59,3 +59,7 @@ Example for [lazy.nvim](https://github.com/folke/lazy.nvim)
     },
 }
 ```
+
+## 📖 Analogues
+
+- [aw-watcher-vim](https://github.com/ActivityWatch/aw-watcher-vim) - a plugin for Vim that helped me a lot.
