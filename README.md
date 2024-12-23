@@ -48,7 +48,7 @@ Example for [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
     bucket = {
-        hostname = nil, -- by default value of HOSTNAME env variable
+        hostname = nil, -- by default hostname of computer
         name = nil, -- by default "aw-watcher-neovim_" .. bucket.hostname
     },
     aw_server = {
