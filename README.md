@@ -8,7 +8,7 @@ A neovim watcher for [ActivityWatch](https://activitywatch.net/) time tracker. F
 
 - 🪵 Selected git branch
 - 📝 Edited files
-- 💻 Language of files
+- 💻 Programming language of a file
 - 💼 Your projects
 
 ## 🔥 Status
