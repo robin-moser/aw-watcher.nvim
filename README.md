@@ -61,6 +61,30 @@ Example for [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```
 
+Example for [vim-plug](https://github.com/junegunn/vim-plug)
+
+For `init.lua``
+
+```lua
+Plug('lowitea/aw-watcher.nvim', { ['do'] = function()
+    -- Calling the setup function is required.
+    -- Bug you can pass into empty table `{}`.
+    require("aw_watcher").setup({
+        aw_server = {
+            host = "127.0.0.1",
+            port = 5600,
+        },
+    })
+end })
+```
+
+Or if you are using `inti.vim`
+
+```vim
+Plug 'lowitea/aw-watcher.nvim'
+autocmd VimEnter * lua require("aw_watcher").setup({})
+```
+
 ## ⚙️ Configuration
 
 **aw-watcher.nvim** comes with the following defaults:
