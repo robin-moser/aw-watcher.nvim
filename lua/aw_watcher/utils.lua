@@ -1,7 +1,3 @@
-local function get_filename() return vim.fn.expand("%p") or "" end
-
-local function get_filetype() return vim.bo.filetype end
-
 local function search_git_root()
     local root_dir
     for dir in vim.fs.parents(vim.api.nvim_buf_get_name(0)) do
@@ -13,9 +9,22 @@ local function search_git_root()
     return root_dir
 end
 
+local function get_filename()
+    local full_path = vim.fn.expand("%:p") or ""
+    local git_root = search_git_root()
+    if git_root and full_path:find(git_root, 1, true) == 1 then
+        -- +2 to skip the trailing slash
+        return full_path:sub(#git_root + 2)
+    end
+    -- fallback to just filename
+    return vim.fn.expand("%:t") or ""
+end
+
+local function get_filetype() return vim.bo.filetype end
+
 local function set_project_name()
     local project = search_git_root() or vim.fn.getcwd()
-    vim.b.project_name = vim.fs.normalize(project):gsub(".*/", "")
+    vim.b.project_name = vim.fs.normalize(project)
 end
 
 local function set_branch_name()
