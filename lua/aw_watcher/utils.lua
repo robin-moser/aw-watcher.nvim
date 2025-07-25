@@ -19,7 +19,7 @@ local function set_project_name()
 end
 
 local function set_branch_name()
-    local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+    local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
     vim.b.branch_name = branch == "" and "unknown" or branch
     return vim.b.branch_name
 end
